@@ -33,6 +33,20 @@ export default function Home() {
     }
   };
 
+  const handleKeyLeft = (e) => {
+    if (e.keyCode === 37) {
+      // Enter key was pressed, trigger search
+      previousPokemon();
+    }
+  };
+
+  const handleKeyRight = (e) => {
+    if (e.keyCode === 39) {
+      // Enter key was pressed, trigger search
+      nextPokemon();
+    }
+  };
+
   const nextPokemon = async () => {
     const nextId = currentPokemonId + 1;
     await fetchPokemon(nextId);
@@ -80,7 +94,11 @@ export default function Home() {
             placeholder="Search for pokemons"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyUp={handleKeyUp} // Add this line to handle Enter key press
+            onKeyUp={(e) => {
+              handleKeyUp(e);
+              handleKeyLeft(e);
+              handleKeyRight(e);
+            }}
           />
           <button
             className="rounded-r-lg border-2 border-blue-600 px-2 border-l-0"
@@ -188,7 +206,7 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-            <div className="flex justify-center items-center text-2xl ">
+            <div className="flex justify-center items-center text-2xl">
               <button onClick={nextPokemon}>
                 <FaArrowRight />
               </button>
