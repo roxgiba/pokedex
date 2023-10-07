@@ -81,17 +81,20 @@ export default function Home() {
                 </tr>
                 <tr>
                   <td className=" w-1/4 px-4 py-2 text-right">Height:</td>
-                  <td className="w-2/3 p-2">{data.height}</td>
+                  <td className="w-2/3 p-2">{data.height} cm</td>
                 </tr>
                 <tr>
                   <td className="w-1/4 px-4 py-2 text-right">Weight:</td>
-                  <td className="w-2/3 p-2">{data.weight}</td>
+                  <td className="w-2/3 p-2">{data.weight} gr</td>
                 </tr>
                 <tr>
                   <td className="w-1/4 px-4 py-2 text-right">Abilities:</td>
                   <td className="w-2/3 p-2">
                     {data?.abilities?.map((abilityInfo, index) => (
-                      <span key={index}>
+                      <span
+                        className="border-2 border-black mr-1 p-1"
+                        key={index}
+                      >
                         {abilityInfo?.ability?.name}
                         {index !== data.abilities.length - 1 && " "}
                       </span>
@@ -102,7 +105,10 @@ export default function Home() {
                   <td className=" w-1/4 px-4 py-2 text-right">Type:</td>
                   <td className="w-2/3 p-2">
                     {data?.types?.map((typeInfo, index) => (
-                      <span key={index}>
+                      <span
+                        className="border-2 border-black mr-1 p-1"
+                        key={index}
+                      >
                         {typeInfo?.type?.name}
                         {index !== data.abilities.length - 1 && " "}
                       </span>
