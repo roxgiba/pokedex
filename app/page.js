@@ -59,93 +59,105 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="">
+      <div className=" flex justify-evenly ">
         {searchedData ? (
-          <div className="bg-slate-100 grid grid-cols-2 gap-4 place-content-around h-100 mx-60 border-4 rounded-lg border-black">
-            <p className="text-3xl font-bold place-self-center">
-              {data?.name?.toUpperCase()}
-            </p>
-            <picture className="place-self-center">
-              <img
-                src={data?.sprites?.other?.["official-artwork"]?.front_default}
-                alt={data.name}
-                width={300}
-                height={300}
-              />
-            </picture>
-            <table className="table-fixed">
-              <tbody>
-                <tr>
-                  <td className=" w-1/4 px-4 py-2 text-right">ID:</td>
-                  <td className="w-2/3 p-2">#{data.id}</td>
-                </tr>
-                <tr>
-                  <td className=" w-1/4 px-4 py-2 text-right">Height:</td>
-                  <td className="w-2/3 p-2">{data.height} cm</td>
-                </tr>
-                <tr>
-                  <td className="w-1/4 px-4 py-2 text-right">Weight:</td>
-                  <td className="w-2/3 p-2">{data.weight} gr</td>
-                </tr>
-                <tr>
-                  <td className="w-1/4 px-4 py-2 text-right">Abilities:</td>
-                  <td className="w-2/3 p-2">
-                    {data?.abilities?.map((abilityInfo, index) => (
-                      <span
-                        className="border-2 border-black mr-1 p-1"
-                        key={index}
-                      >
-                        {abilityInfo?.ability?.name}
-                        {index !== data.abilities.length - 1 && " "}
-                      </span>
-                    ))}
-                  </td>
-                </tr>
-                <tr>
-                  <td className=" w-1/4 px-4 py-2 text-right">Type:</td>
-                  <td className="w-2/3 p-2">
-                    {data?.types?.map((typeInfo, index) => (
-                      <span
-                        className="border-2 border-black mr-1 p-1"
-                        key={index}
-                      >
-                        {typeInfo?.type?.name}
-                        {index !== data.abilities.length - 1 && " "}
-                      </span>
-                    ))}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <table className="table-auto">
-              <tbody className="">
-                <tr>
-                  <td className=" w-1/3 px-4 py-2 text-right">HP:</td>
-                  <td className="w-2/3 p-2">...</td>
-                </tr>
-                <tr>
-                  <td className="w-1/3 px-4 py-2 text-right">Attack:</td>
-                  <td className="w-2/3 p-2">...</td>
-                </tr>
-                <tr>
-                  <td className="w-1/4 px-4 py-2 text-right">Defence:</td>
-                  <td className="w-2/3 p-2">...</td>
-                </tr>
-                <tr>
-                  <td className=" w-1/4 px-4 py-2 text-right">Sp. Attack:</td>
-                  <td className="w-2/3 p-2">...</td>
-                </tr>
-                <tr>
-                  <td className=" w-2/5 px-4 py-2 text-right">Sp. Defence:</td>
-                  <td className="w-3/5 p-2">...</td>
-                </tr>
-                <tr>
-                  <td className="w-1/4 px-4 py-2 text-right">Speed:</td>
-                  <td className="w-2/3 p-2">...</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <>
+            <div className="">
+              <button className="bg-black-50">arrow left</button>
+            </div>
+            <div className="bg-slate-100 grid grid-cols-2 gap-4 place-content-around h-100 mx-60 border-4 rounded-lg border-black">
+              <p className="text-5xl place-self-center tracking-widest ">
+                {data?.name?.toUpperCase()}
+              </p>
+              <picture className="place-self-center">
+                <img
+                  src={
+                    data?.sprites?.other?.["official-artwork"]?.front_default
+                  }
+                  alt={data.name}
+                  width={300}
+                  height={300}
+                />
+              </picture>
+              <table className="table-fixed">
+                <tbody>
+                  <tr>
+                    <td className=" w-1/4 px-4 py-2 text-right">ID:</td>
+                    <td className="w-2/3 p-2">#{data.id}</td>
+                  </tr>
+                  <tr>
+                    <td className=" w-1/4 px-4 py-2 text-right">Height:</td>
+                    <td className="w-2/3 p-2">{data.height} cm</td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/4 px-4 py-2 text-right">Weight:</td>
+                    <td className="w-2/3 p-2">{data.weight} gr</td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/4 px-4 py-2 text-right">Abilities:</td>
+                    <td className="w-2/3 p-2">
+                      {data?.abilities?.map((abilityInfo, index) => (
+                        <span
+                          className="border-2 border-black mr-1 p-1"
+                          key={index}
+                        >
+                          {abilityInfo?.ability?.name}
+                          {index !== data.abilities.length - 1 && " "}
+                        </span>
+                      ))}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className=" w-1/4 px-4 py-2 text-right">Type:</td>
+                    <td className="w-2/3 p-2">
+                      {data?.types?.map((typeInfo, index) => (
+                        <span
+                          className="border-2 border-black mr-1 p-1"
+                          key={index}
+                        >
+                          {typeInfo?.type?.name}
+                          {index !== data.abilities.length - 1 && " "}
+                        </span>
+                      ))}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <table className="table-auto">
+                <tbody className="">
+                  <tr>
+                    <td className=" w-1/3 px-4 py-2 text-right">HP:</td>
+                    <td className="w-2/3 p-2">...</td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/3 px-4 py-2 text-right">Attack:</td>
+                    <td className="w-2/3 p-2">...</td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/4 px-4 py-2 text-right">Defence:</td>
+                    <td className="w-2/3 p-2">...</td>
+                  </tr>
+                  <tr>
+                    <td className=" w-1/4 px-4 py-2 text-right">Sp. Attack:</td>
+                    <td className="w-2/3 p-2">...</td>
+                  </tr>
+                  <tr>
+                    <td className=" w-2/5 px-4 py-2 text-right">
+                      Sp. Defence:
+                    </td>
+                    <td className="w-3/5 p-2">...</td>
+                  </tr>
+                  <tr>
+                    <td className="w-1/4 px-4 py-2 text-right">Speed:</td>
+                    <td className="w-2/3 p-2">...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div>
+              <button>arrow right</button>
+            </div>
+          </>
         ) : null}
       </div>
     </main>
