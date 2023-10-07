@@ -31,7 +31,7 @@ export default function Home() {
   }, [searchedData]);
 
   return (
-    <main className="bg-sky mx-40">
+    <main className="bg-green-50 min-h-screen">
       <div>{console.log(data)}</div>
       <div className="grid grid-cols-2 gap-4 place-content-around h-20 mx-60">
         <h1 className="text-3xl font-bold">Pokedex</h1>
