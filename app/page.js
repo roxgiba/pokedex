@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 export default function Home() {
   const [data, setData] = useState({});
@@ -63,10 +64,12 @@ export default function Home() {
         {searchedData ? (
           <>
             <div className="">
-              <button className="bg-black-50">arrow left</button>
+              <button className="bg-black-50">
+                Previous pokemon <FaArrowLeft />
+              </button>
             </div>
             <div className="bg-slate-100 grid grid-cols-2 gap-4 place-content-around h-100 mx-60 border-4 rounded-lg border-black">
-              <p className="text-5xl place-self-center tracking-widest ">
+              <p className="text-3xl place-self-center tracking-widest ">
                 {data?.name?.toUpperCase()}
               </p>
               <picture className="place-self-center">
@@ -142,7 +145,7 @@ export default function Home() {
                     <td className="w-2/3 p-2">...</td>
                   </tr>
                   <tr>
-                    <td className=" w-2/5 px-4 py-2 text-right">
+                    <td className=" w-2/5 px-2 py-2 text-right">
                       Sp. Defence:
                     </td>
                     <td className="w-3/5 p-2">...</td>
@@ -155,7 +158,9 @@ export default function Home() {
               </table>
             </div>
             <div>
-              <button>arrow right</button>
+              <button>
+                Next pokemom <FaArrowRight />{" "}
+              </button>
             </div>
           </>
         ) : null}
