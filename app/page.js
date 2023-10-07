@@ -7,6 +7,7 @@ export default function Home() {
   const [data, setData] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const [searchedData, setSearchedData] = useState(null);
+  const [currentPokemonId, setCurrentPokemonId] = useState(1);
 
   const handleSearch = async () => {
     const searchURL = `https://pokeapi.co/api/v2/pokemon/${searchTerm}`;
@@ -32,9 +33,39 @@ export default function Home() {
     }
   };
 
+  const nextPokemon = async () => {
+    const nextId = currentPokemonId + 1;
+    await fetchPokemon(nextId);
+  };
+
+  const previousPokemon = async () => {
+    if (currentPokemonId > 1) {
+      const previousId = currentPokemonId - 1;
+      await fetchPokemon(previousId);
+    }
+  };
+
+  const fetchPokemon = async (pokemonId) => {
+    const searchURL = `https://pokeapi.co/api/v2/pokemon/${pokemonId}`;
+
+    try {
+      const response = await fetch(searchURL);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      setData(result);
+      setCurrentPokemonId(pokemonId);
+    } catch (error) {
+      console.error("An error occurred while fetching the data: ", error);
+      setData(null);
+    }
+  };
+
   useEffect(() => {
     if (searchedData) {
       setData(searchedData);
+      setCurrentPokemonId(searchedData.id);
     }
   }, [searchedData]);
 
@@ -63,9 +94,9 @@ export default function Home() {
       <div className=" flex justify-evenly ">
         {searchedData ? (
           <>
-            <div className="">
-              <button className="bg-black-50">
-                Previous pokemon <FaArrowLeft />
+            <div className="flex justify-center items-center text-2xl">
+              <button className="bg-black-50" onClick={previousPokemon}>
+                <FaArrowLeft />
               </button>
             </div>
             <div className="bg-slate-100 grid grid-cols-2 gap-4 place-content-around h-100 mx-60 border-4 rounded-lg border-black">
@@ -157,9 +188,9 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-            <div>
-              <button>
-                Next pokemom <FaArrowRight />{" "}
+            <div className="flex justify-center items-center text-2xl ">
+              <button onClick={nextPokemon}>
+                <FaArrowRight />
               </button>
             </div>
           </>
