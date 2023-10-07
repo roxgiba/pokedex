@@ -24,6 +24,13 @@ export default function Home() {
     setSearchTerm("");
   };
 
+  const handleKeyUp = (e) => {
+    if (e.keyCode === 13) {
+      // Enter key was pressed, trigger search
+      handleSearch();
+    }
+  };
+
   useEffect(() => {
     if (searchedData) {
       setData(searchedData);
@@ -41,6 +48,7 @@ export default function Home() {
             placeholder="Search for pokemons"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
+            onKeyUp={handleKeyUp} // Add this line to handle Enter key press
           />
           <button
             className="rounded-r-lg border-2 border-blue-600 px-2 border-l-0"
