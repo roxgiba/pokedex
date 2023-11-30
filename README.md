@@ -44,6 +44,12 @@ The Pokedex app is a React application that allows users to search for and explo
    - Use the left arrow button to view the previous Pokemon.
    - Use the right arrow button to view the next Pokemon.
   
+## Deployment
+The Pokedex app is deployed and accessible at [https://pokedex-roxgiba.vercel.app/].
+
+## Continuous Integration and Deployment (CI/CD)
+The project is set up with continuous integration and deployment using CI/CD Pipeline. Each push to the main branch triggers automatic testing and deployment processes to ensure a seamless and reliable application.
+  
 ## Dependencies
 - **React**: JavaScript library for building user interfaces.
 - **React Icons (FaArrowLeft, FaArrowRight)**: Icon library for arrow buttons.
