@@ -1,34 +1,63 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Pokedex App
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+The Pokedex app is a React application that allows users to search for and explore information about Pokemon using the [PokeAPI](https://pokeapi.co/). Users can search for a specific Pokemon by name and navigate through the Pokemon list using arrow buttons. The app provides details such as ID, height, weight, abilities, and types for the selected Pokemon.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```
+   git clone https://github.com/roxgiba/pokedex.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd pokedex
+   ```
+3. Install dependencies:
+   ```
+   npm install
+   ```
+4. Start the development server:
+   ```
+   npm start
+   ```
+   Access the application at http://localhost:3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features
+- **Search**: Enter the name of a Pokemon in the search bar and press the search button or hit Enter to fetch and display detailed information about that Pokemon.
+- **Navigation**: Use the left and right arrow buttons to navigate to the previous or next Pokemon in the list.
 
-## Learn More
+## Usage
+1. **Open the application in your web browser**.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Search for a Pokemon**:
+   - Enter the name of the Pokemon in the search bar.
+   - Press the search button or hit Enter.
+     
+3. **View Pokemon Details**:
+   - The app displays detailed information about the selected Pokemon, including ID, height, weight, abilities, and types.
+     
+4. **Navigate Through Pokemon List**:
+   - Use the left arrow button to view the previous Pokemon.
+   - Use the right arrow button to view the next Pokemon.
+  
+## Dependencies
+- **React**: JavaScript library for building user interfaces.
+- **React Icons (FaArrowLeft, FaArrowRight)**: Icon library for arrow buttons.
+- **PokeAPI**: External API providing Pokemon data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Code Structure
+- **Components**:
+    - _Home_: Main component containing the application logic.
+- **State Management**:
+    - State variables (_data, searchTerm, searchedData, currentPokemonId_) manage the UI and data flow.
+- **API Integration**:
+    - The app interacts with the PokeAPI to fetch Pokemon data based on the user's search query.
+- **Event Handling**:
+    -  Functions like _handleSearch, handleKeyUp, handleKeyLeft, handleKeyRight, nextPokemon_, and _previousPokemon_ handle user inputs and interactions.
+ 
+## Acknowledgements
+[PokeAPI](https://pokeapi.co/): Providing the data used in this application.
